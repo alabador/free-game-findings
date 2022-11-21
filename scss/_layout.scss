@@ -1,10 +1,24 @@
+main {
+    margin: 0 15%;
+
+    @media screen and (min-width: 1080px) {
+        margin: 0 10%;
+    }
+}
+
+.title {
+    text-align: center;
+    margin: 5vh 0 5vh;
+}
+
 .results-container {
     display: grid; 
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
 
     @media screen and (min-width: 720px) {
         grid-template-columns: 1fr 1fr;
+        gap: 3rem;
     }
     @media screen and (min-width: 1080px) {
         grid-template-columns: 1fr 1fr 1fr;

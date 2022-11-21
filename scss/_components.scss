@@ -20,8 +20,7 @@
 
 .mini-card {
     @extend %card-base;
-    margin: 1rem 0;
-    height: 200px;
+    // height: 200px;
     width: 100%;
 
     .mini-card-text{
