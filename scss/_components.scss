@@ -1,0 +1,33 @@
+%card-base {
+    display: flex;
+    // margin: 2rem 0;
+    align-items: center;
+    flex-direction: column;
+}
+
+%card-text {
+    flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4rem;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(201, 201, 201);
+    border-radius: 8px 8px 8px 8px;
+}
+
+.mini-card {
+    @extend %card-base;
+    margin: 1rem 0;
+    height: 200px;
+    width: 100%;
+
+    .mini-card-text{
+        @extend %card-text;
+        width: 100%;
+        min-height: 100%;
+        // justify-content: space-between;
+    }
+}
