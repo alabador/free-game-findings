@@ -12,8 +12,9 @@ function getFetch(){
         console.log(data)
 
         data.data.children.forEach(child => {
-        //   const source = child.data.title.split("]");
-          buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink);
+            if(child.data.stickied !== true){
+                buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink);
+            }
         });
         document.querySelector('main').classList.add('background-gradient')
       })
