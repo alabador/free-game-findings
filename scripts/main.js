@@ -21,10 +21,12 @@ function getFetch(){
       .then(data => {
         console.log(data)
 
-        data.data.children.forEach(child => {
+        data.data.children.forEach((child, index) => {
             if(child.data.stickied !== true && child.data.link_flair_css_class !== "Expired"){
-                buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink, child.data.url);
-                uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1))
+                setTimeout(() => {
+                    buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink, child.data.url);
+                    uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1))
+                }, 100 * index)
             }
         });
         uniqueArray = [...new Set(uniqueArray)];
@@ -75,8 +77,23 @@ function buildCard(title, permalink, salelink) {
   
   links.appendChild(permaLink);
   links.appendChild(saleLink);
-  cardDetails.appendChild(links)
+  cardDetails.appendChild(links);
   
-  results.appendChild(card);
+  results.appendChild(card).animate(slideIn, slideTiming);
 }
 
+const slideIn = [
+    { transform: 'translateX(-100vw)' },
+    { transform: 'translateX(0)'}
+]
+
+const slideTiming = {
+    duration: 700,
+    easing: 'ease-in-out',
+}
+
+// function slideIn() {
+//     document.querySelectorAll('mini-card').forEach(card => {
+//         card.classList.remove('mini-card-slide')
+//     })
+// }
