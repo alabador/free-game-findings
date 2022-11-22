@@ -24,7 +24,7 @@ function getFetch(){
         data.data.children.forEach((child, index) => {
             if(child.data.stickied !== true && child.data.link_flair_css_class !== "Expired"){
                 setTimeout(() => {
-                    buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink, child.data.url);
+                    buildCard(child.data.title, child.data.created, "https://www.reddit.com/" + child.data.permalink, child.data.url);
                 }, 100 * index)
                 uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1));
             }
@@ -39,7 +39,7 @@ function getFetch(){
 }
 
 
-function buildCard(title, permalink, salelink) {
+function buildCard(title, time, permalink, salelink) {
   const card = document.createElement('div');
   card.classList.add('mini-card');
 
@@ -65,6 +65,14 @@ function buildCard(title, permalink, salelink) {
   }
   
   cardDetails.appendChild(saleTitle);
+
+  const saleTime = document.createElement('p');
+  saleTime.classList.add('card-time');
+//   const dateTime = new Date(time * 1000)
+  let dateTime = new Date() - new Date(time * 1000);
+  dateTime = Math.round((dateTime/1000)/(60*60))
+  saleTime.textContent = "Created " + dateTime + " hours ago";
+  cardDetails.appendChild(saleTime);
 
   const permaLink = document.createElement('a');
   permaLink.classList.add('card-link');
