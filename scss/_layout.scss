@@ -20,6 +20,13 @@ main {
 .filter-container {
     text-align: center;
     margin-bottom: 5vh;
+
+    button {
+        padding: 1.5rem;
+        background-color: rgb(83, 121, 192);
+        border-style: none;
+        color: white;
+    }
 }
 
 .results-container {
