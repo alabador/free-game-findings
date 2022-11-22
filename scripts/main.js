@@ -13,8 +13,6 @@ filter.addEventListener('change', function() {
 });
 
 function getFetch(){
-  // const choice = document.querySelector('input').value
-  // console.log(choice)
   const url = `https://www.reddit.com/r/FreeGameFindings/.json`;
   fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -77,10 +75,12 @@ function buildCard(title, time, permalink, salelink) {
   const permaLink = document.createElement('a');
   permaLink.classList.add('card-link');
   permaLink.setAttribute('href', permalink)
+  permaLink.setAttribute('target', "_blank")
   permaLink.textContent = "Comments";
   const saleLink = document.createElement('a');
   saleLink.classList.add('card-link');
   saleLink.setAttribute('href', salelink)
+  saleLink.setAttribute('target', "_blank")
   saleLink.textContent = "Direct Link";
   
   links.appendChild(permaLink);
@@ -99,9 +99,3 @@ export const slideTiming = {
     duration: 700,
     easing: 'ease-in-out',
 }
-
-// function slideIn() {
-//     document.querySelectorAll('mini-card').forEach(card => {
-//         card.classList.remove('mini-card-slide')
-//     })
-// }
