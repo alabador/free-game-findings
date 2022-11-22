@@ -14,9 +14,10 @@
     height: 100%;
     width: 100%;
     justify-content: center;
-    background-color: rgb(253, 253, 253);
+    background-color: rgb(170, 158, 158);
     box-shadow: 2px 4px 3px 1px rgba(152, 152, 226, 0.15);
-    border-radius: 8px 8px 8px 8px;
+    color: white;
+    border-radius: 4px 4px 4px 4px;
 }
 
 .mini-card {
@@ -34,7 +35,7 @@
 
 .links a {
     border: 1px solid var(--cta-color);
-    color: black;
+    color: white;
     text-decoration: none;
     padding: 1.5rem 2rem;
 }

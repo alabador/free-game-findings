@@ -6,7 +6,6 @@ function getFetch(){
   // const choice = document.querySelector('input').value
   // console.log(choice)
   const url = `https://www.reddit.com/r/FreeGameFindings/.json`;
-
   fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
@@ -16,6 +15,7 @@ function getFetch(){
         //   const source = child.data.title.split("]");
           buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink);
         });
+        document.querySelector('main').classList.add('background-gradient')
       })
       .catch(err => {
           console.log(`error ${err}`)
