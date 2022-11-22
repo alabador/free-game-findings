@@ -23,6 +23,20 @@
     }
 }
 
+%drm-type {
+    border-left: 10px solid white;
+}
+
+.steam {
+    @extend %drm-type;
+    border-left-color: rgb(56, 81, 163);
+}
+
+.epic {
+    @extend %drm-type;
+    border-left-color: rgb(49, 49, 49);
+}
+
 .mini-card {
     @extend %card-base;
     // height: 200px;
@@ -46,3 +60,4 @@
         font-size: 1.4rem;
     }
 }
+

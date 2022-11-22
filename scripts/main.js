@@ -12,7 +12,7 @@ function getFetch(){
         console.log(data)
 
         data.data.children.forEach(child => {
-            if(child.data.stickied !== true){
+            if(child.data.stickied !== true && child.data.link_flair_css_class !== "Expired"){
                 buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink);
             }
         });
@@ -37,6 +37,17 @@ function buildCard(title, permalink, salelink) {
   const saleTitle = document.createElement('p');
   saleTitle.classList.add('card-title');
   saleTitle.textContent = title;
+  
+  if (title.includes('[Steam]')) {
+    card.classList.add('steam')
+  }
+  else if (title.includes('[Epic]')) {
+    card.classList.add('epic');
+  }
+  else {
+    console.log('failed');
+  }
+  
   cardDetails.appendChild(saleTitle);
 
   const permaLink = document.createElement('a');
