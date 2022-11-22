@@ -23,7 +23,7 @@ function getFetch(){
 
         data.data.children.forEach(child => {
             if(child.data.stickied !== true && child.data.link_flair_css_class !== "Expired"){
-                buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink);
+                buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink, child.data.url);
                 uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1))
             }
         });
