@@ -4,7 +4,10 @@ const results = document.querySelector('.results-container');
 export const filter = document.getElementById('filter');
 export let uniqueArray = [];
 
-document.querySelector('button').addEventListener('click', getFetch)
+document.querySelector('button').addEventListener('click', () => {
+    getFetch();
+    document.querySelector('button').classList.add('hidden');
+})
 filter.addEventListener('change', function() {
     changeResults(filter.value);
 });

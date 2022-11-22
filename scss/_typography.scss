@@ -15,7 +15,7 @@
     font-weight: 600;
     color: var(--text-color);
     
-    overflow: hidden;
+    overflow: visible;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2; /* number of lines to show */
