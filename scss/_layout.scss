@@ -1,9 +1,6 @@
 main {
     padding: 0 10%;
 
-    // @media screen and (min-width: 1080px) {
-    //     padding: 0 10%;
-    // }
 }
 
 .background-gradient {
@@ -14,18 +11,22 @@ main {
 
 .title {
     text-align: center;
-    padding: 5vh 0 2rem;
+    padding: 8vh 0 2rem;
 }
 
 .filter-container {
     text-align: center;
-    margin-bottom: 5vh;
+    margin-bottom: 8vh;
 
     button {
         padding: 1.5rem;
         background-color: rgb(83, 121, 192);
         border-style: none;
         color: white;
+    }
+
+    .filter-select {
+        margin: 2rem 0;
     }
 }
 
@@ -37,6 +38,8 @@ main {
     @media screen and (min-width: 800px) {
         gap: 2rem;
     }
+
+    padding-bottom: 10vh;
 }
 
 .links {

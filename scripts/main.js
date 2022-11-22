@@ -1,6 +1,13 @@
+import { changeResults, createOptions } from "./dropdown.js";
+
 const results = document.querySelector('.results-container');
+export const filter = document.getElementById('filter');
+export let uniqueArray = [];
 
 document.querySelector('button').addEventListener('click', getFetch)
+filter.addEventListener('change', function() {
+    changeResults(filter.value);
+});
 
 function getFetch(){
   // const choice = document.querySelector('input').value
@@ -14,14 +21,18 @@ function getFetch(){
         data.data.children.forEach(child => {
             if(child.data.stickied !== true && child.data.link_flair_css_class !== "Expired"){
                 buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink);
+                uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1))
             }
         });
+        uniqueArray = [...new Set(uniqueArray)];
+        createOptions(uniqueArray);
         document.querySelector('main').classList.add('background-gradient')
       })
       .catch(err => {
           console.log(`error ${err}`)
       });
 }
+
 
 function buildCard(title, permalink, salelink) {
   const card = document.createElement('div');

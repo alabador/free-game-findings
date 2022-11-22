@@ -37,6 +37,10 @@
     border-left-color: rgb(49, 49, 49);
 }
 
+.hidden {
+    display: none;
+}
+
 .mini-card {
     @extend %card-base;
     // height: 200px;
