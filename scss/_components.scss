@@ -37,6 +37,10 @@
     @extend %drm-type;
     border-left-color: rgb(49, 49, 49);
 }
+.other {
+    @extend %drm-type;
+    border-left-color: rgb(88, 119, 102);
+}
 
 .hidden {
     display: none;

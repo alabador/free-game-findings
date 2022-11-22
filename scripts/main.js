@@ -25,8 +25,8 @@ function getFetch(){
             if(child.data.stickied !== true && child.data.link_flair_css_class !== "Expired"){
                 setTimeout(() => {
                     buildCard(child.data.title, "https://www.reddit.com/" + child.data.permalink, child.data.url);
-                    uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1))
                 }, 100 * index)
+                uniqueArray.push(child.data.title.substring(0, child.data.title.indexOf(']') + 1));
             }
         });
         uniqueArray = [...new Set(uniqueArray)];
@@ -61,7 +61,7 @@ function buildCard(title, permalink, salelink) {
     card.classList.add('epic');
   }
   else {
-    console.log('failed');
+    card.classList.add('other');
   }
   
   cardDetails.appendChild(saleTitle);
@@ -82,12 +82,12 @@ function buildCard(title, permalink, salelink) {
   results.appendChild(card).animate(slideIn, slideTiming);
 }
 
-const slideIn = [
+export const slideIn = [
     { transform: 'translateX(-100vw)' },
     { transform: 'translateX(0)'}
 ]
 
-const slideTiming = {
+export const slideTiming = {
     duration: 700,
     easing: 'ease-in-out',
 }
